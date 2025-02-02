@@ -1,0 +1,70 @@
+Article Number - 9
+
+Category: Developement
+Sub Category : Basic
+
+Image : https://miro.medium.com/v2/resize:fit:1400/format:webp/1*Q874E1DQT1XBByXG7MJsSw.jpeg
+
+Title: Convert your image to PDF using just 4 lines of code.
+
+Description: Today, Camscanner is one of the most well known and widely used applications for scanning and sharing of documents.
+
+keywords : Convert image, image to PDF, just 4 lines of code
+
+Content:
+
+<div class="ab cb lh li lj lk" role="separator">&nbsp;</div>
+<div class="fj fk fl fm fn">
+<div class="ab cb">
+<div class="ci bh ev ew ex ey">
+<figure class="ls lt lu lv lw lx lp lq paragraph-image">
+<div class="ly lz ed ma bh mb" tabindex="0" role="button">
+<div class="lp lq lr"><picture><source srcset="https://miro.medium.com/v2/resize:fit:640/format:webp/1*Q874E1DQT1XBByXG7MJsSw.jpeg 640w, https://miro.medium.com/v2/resize:fit:720/format:webp/1*Q874E1DQT1XBByXG7MJsSw.jpeg 720w, https://miro.medium.com/v2/resize:fit:750/format:webp/1*Q874E1DQT1XBByXG7MJsSw.jpeg 750w, https://miro.medium.com/v2/resize:fit:786/format:webp/1*Q874E1DQT1XBByXG7MJsSw.jpeg 786w, https://miro.medium.com/v2/resize:fit:828/format:webp/1*Q874E1DQT1XBByXG7MJsSw.jpeg 828w, https://miro.medium.com/v2/resize:fit:1100/format:webp/1*Q874E1DQT1XBByXG7MJsSw.jpeg 1100w, https://miro.medium.com/v2/resize:fit:1400/format:webp/1*Q874E1DQT1XBByXG7MJsSw.jpeg 1400w" type="image/webp" sizes="(min-resolution: 4dppx) and (max-width: 700px) 50vw, (-webkit-min-device-pixel-ratio: 4) and (max-width: 700px) 50vw, (min-resolution: 3dppx) and (max-width: 700px) 67vw, (-webkit-min-device-pixel-ratio: 3) and (max-width: 700px) 65vw, (min-resolution: 2.5dppx) and (max-width: 700px) 80vw, (-webkit-min-device-pixel-ratio: 2.5) and (max-width: 700px) 80vw, (min-resolution: 2dppx) and (max-width: 700px) 100vw, (-webkit-min-device-pixel-ratio: 2) and (max-width: 700px) 100vw, 700px"><source srcset="https://miro.medium.com/v2/resize:fit:640/1*Q874E1DQT1XBByXG7MJsSw.jpeg 640w, https://miro.medium.com/v2/resize:fit:720/1*Q874E1DQT1XBByXG7MJsSw.jpeg 720w, https://miro.medium.com/v2/resize:fit:750/1*Q874E1DQT1XBByXG7MJsSw.jpeg 750w, https://miro.medium.com/v2/resize:fit:786/1*Q874E1DQT1XBByXG7MJsSw.jpeg 786w, https://miro.medium.com/v2/resize:fit:828/1*Q874E1DQT1XBByXG7MJsSw.jpeg 828w, https://miro.medium.com/v2/resize:fit:1100/1*Q874E1DQT1XBByXG7MJsSw.jpeg 1100w, https://miro.medium.com/v2/resize:fit:1400/1*Q874E1DQT1XBByXG7MJsSw.jpeg 1400w" sizes="(min-resolution: 4dppx) and (max-width: 700px) 50vw, (-webkit-min-device-pixel-ratio: 4) and (max-width: 700px) 50vw, (min-resolution: 3dppx) and (max-width: 700px) 67vw, (-webkit-min-device-pixel-ratio: 3) and (max-width: 700px) 65vw, (min-resolution: 2.5dppx) and (max-width: 700px) 80vw, (-webkit-min-device-pixel-ratio: 2.5) and (max-width: 700px) 80vw, (min-resolution: 2dppx) and (max-width: 700px) 100vw, (-webkit-min-device-pixel-ratio: 2) and (max-width: 700px) 100vw, 700px" data-testid="og"><img class="bh kp mc c" role="presentation" src="https://miro.medium.com/v2/resize:fit:1400/1*Q874E1DQT1XBByXG7MJsSw.jpeg" alt="" width="700" height="700" loading="eager"></picture></div>
+</div>
+<figcaption class="md me mf lp lq mg mh bf b bg z dx" spellcheck="false" data-selectable-paragraph="" data-qb-tmp-id="lt-186884" data-gramm="false"></figcaption>
+</figure>
+<p id="3ab5" class="pw-post-body-paragraph mj mk fq ml b mm mn mo mp mq mr ms mt mu mv mw mx my mz na nb nc nd ne nf ng fj bk" data-selectable-paragraph="">Today,<strong class="ml fr">&nbsp;Camscanner&nbsp;</strong>is<strong class="ml fr">&nbsp;</strong>one of the most well known and widely used applications for scanning and sharing of documents. It allows the user to scan via there mobile, apply image straightening and share multiple documents simultaneously as a PDF.</p>
+<p id="1515" class="pw-post-body-paragraph mj mk fq ml b mm mn mo mp mq mr ms mt mu mv mw mx my mz na nb nc nd ne nf ng fj bk" data-selectable-paragraph="">Often times, we face a similar situation in our system where we need to convert a pile of Images into a PDF, for ease of sharing and compaction. This tutorial will give you a basic 4 line python code to replicate this specific functioning of Camscanner and achieve the task.</p>
+<h2 id="fd67" class="nh ni fq bf nj nk nl nm nn no np nq nr mu ns nt nu my nv nw nx nc ny nz oa ob bk" data-selectable-paragraph="">Let&rsquo;s start</h2>
+<p id="6e04" class="pw-post-body-paragraph mj mk fq ml b mm oc mo mp mq od ms mt mu oe mw mx my of na nb nc og ne nf ng fj bk" data-selectable-paragraph="">Although a number of libraries are available on the internet which can be used to convert images into pdf but for this tutorial, we will use&nbsp;<strong class="ml fr">img2pdf</strong>.</p>
+<p id="7fd2" class="pw-post-body-paragraph mj mk fq ml b mm mn mo mp mq mr ms mt mu mv mw mx my mz na nb nc nd ne nf ng fj bk" data-selectable-paragraph="">So before we understand how to use img2pdf, let's install it.</p>
+<blockquote class="oh oi oj">
+<p id="9a32" class="mj mk ok ml b mm mn mo mp mq mr ms mt mu mv mw mx my mz na nb nc nd ne nf ng fj bk" data-selectable-paragraph="">Open the command prompt on your system and run the following script.</p>
+</blockquote>
+<pre class="language-python"><code>pip install img2pdf</code></pre>
+<p id="fb31" class="pw-post-body-paragraph mj mk fq ml b mm mn mo mp mq mr ms mt mu mv mw mx my mz na nb nc nd ne nf ng fj bk" data-selectable-paragraph="">As explained in the original documentation, img2pdf allows us to perform a lossless conversion of images into PDF. A lossless conversion will always have the exact same color information for every pixel as the input, which is often the desired property. img2pdf gives a very basic function&nbsp;<strong class="ml fr">img2pdf.convert</strong>, to perform this task.</p>
+<p id="ba7d" class="pw-post-body-paragraph mj mk fq ml b mm mn mo mp mq mr ms mt mu mv mw mx my mz na nb nc nd ne nf ng fj bk" data-selectable-paragraph="">Now that our required library is installed, let's move ahead.</p>
+<blockquote class="oh oi oj">
+<p id="414d" class="mj mk ok ml b mm mn mo mp mq mr ms mt mu mv mw mx my mz na nb nc nd ne nf ng fj bk" data-selectable-paragraph="">Create a file chat.py and import os and img2pdf libraries.</p>
+</blockquote>
+<pre class="language-python"><code>import os
+import img2pdf</code></pre>
+<pre class="ls lt lu lv lw ol om on oo ay op bk">&nbsp;</pre>
+<p id="1130" class="pw-post-body-paragraph mj mk fq ml b mm mn mo mp mq mr ms mt mu mv mw mx my mz na nb nc nd ne nf ng fj bk" data-selectable-paragraph="">The OS module in Python provides a way of using operating system dependent functionality. We will be using it for accessing the images name in the CWD (Current Working Directory).</p>
+<blockquote class="oh oi oj">
+<p id="74ef" class="mj mk ok ml b mm mn mo mp mq mr ms mt mu mv mw mx my mz na nb nc nd ne nf ng fj bk" data-selectable-paragraph="">Open the Output.pdf file in &ldquo;wb&rdquo; mode</p>
+</blockquote>
+<pre class="language-python"><code>with open("output.pdf", "wb") as f:</code></pre>
+<pre class="ls lt lu lv lw ol om on oo ay op bk">&nbsp;</pre>
+<p id="c7d6" class="pw-post-body-paragraph mj mk fq ml b mm mn mo mp mq mr ms mt mu mv mw mx my mz na nb nc nd ne nf ng fj bk" data-selectable-paragraph="">The &ldquo;wb&rdquo; indicates that we are writing in our output.pdf in binary mode.</p>
+<blockquote class="oh oi oj">
+<p id="ceb6" class="mj mk ok ml b mm mn mo mp mq mr ms mt mu mv mw mx my mz na nb nc nd ne nf ng fj bk" data-selectable-paragraph="">Run a loop inside the write method which pics up a &ldquo;.jpeg&rdquo; image,converts it and writes it to the pdf file.</p>
+</blockquote>
+<pre class="language-python"><code>with open("output.pdf", "wb") as f:
+    f.write(img2pdf.convert([i for i in os.listdir('.') if i.endswith(".jpg")]))</code></pre>
+<pre class="ls lt lu lv lw ol om on oo ay op bk">&nbsp;</pre>
+<p id="9fd9" class="pw-post-body-paragraph mj mk fq ml b mm mn mo mp mq mr ms mt mu mv mw mx my mz na nb nc nd ne nf ng fj bk" data-selectable-paragraph="">The above code can be broken down for a better understanding. The&nbsp;<em class="ok">os.listdir()</em>&nbsp;method returns a list of all the files in the current directory, iterator &lsquo;<em class="ok">i&rsquo;,&nbsp;</em>traverses through the list and pics up jpeg images one by one, converts them and then write them to the output.pdf we opened earlier.</p>
+<blockquote class="oh oi oj">
+<p id="7573" class="mj mk ok ml b mm mn mo mp mq mr ms mt mu mv mw mx my mz na nb nc nd ne nf ng fj bk" data-selectable-paragraph="">To run the converter, just go to the command prompt and type</p>
+</blockquote>
+<h2 class="nh ni fq bf nj nk nl nm nn no np nq nr mu ns nt nu my nv nw nx nc ny nz oa ob bk" data-selectable-paragraph="">&nbsp;</h2>
+<pre class="language-markup"><code>python Converter.py</code></pre>
+<h2 id="6389" class="nh ni fq bf nj nk nl nm nn no np nq nr mu ns nt nu my nv nw nx nc ny nz oa ob bk" data-selectable-paragraph="">Source Code:</h2>
+<pre class="language-python"><code>import os
+import img2pdf
+with open("output.pdf", "wb") as f:
+    f.write(img2pdf.convert([i for i in os.listdir('.') if i.endswith(".jpg")]))</code></pre>
+<pre class="ls lt lu lv lw ol om on oo ay op bk"><span id="c476" class="nh ni fq om b hf oq or l os ot" data-selectable-paragraph=""></span>Note: If you are straightaway copying the code for use, please make sure that all your images are in your CWD (Current Working Directory).</pre>
+</div>
+</div>
+</div>
