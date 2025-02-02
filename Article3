@@ -1,0 +1,681 @@
+Article Number - 3
+
+Category: Spring Boot
+Sub Category : Basic
+
+Image : https://bhartikumari.s3.ap-south-1.amazonaws.com/Untitled%20design%20%2863%29%20%281%29.png_1713386385783
+
+Title: Streamlining Microservices with API Gateway in Spring Boot: Simplify Integration and Enhance Performance
+
+Description: Explore the power of API Gateway in Spring Boot for orchestrating microservices architecture. Our comprehensive guide illuminates the path to seamless integration, enhanced security, and optimized performance.
+
+keywords : Microservices API Gateway, Spring Boot integration, Microservices architecture, API Gateway benefits, Spring Boot performance optimization
+
+Content:
+
+<h2 style="text-align: center;">Streamlining Microservices with API Gateway in Spring Boot: Simplify Integration and Enhance Performance</h2>
+<p><img style="display: block; margin-left: auto; margin-right: auto;" src="https://bhartikumari.s3.ap-south-1.amazonaws.com/Untitled%20design%20%2863%29%20%281%29.png_1713386385783" alt="" width="662" height="372"></p>
+<p><iframe style="display: table; margin-left: auto; margin-right: auto;" title="YouTube video player" src="https://www.youtube.com/embed/tEBoYMMiUu8?si=eh91gbNjpTVZGutm" width="560" height="315" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen"></iframe></p>
+<hr>
+<h2 style="text-align: center;">FOLLOW THESE STEPS</h2>
+<hr>
+<h2>Step 1: POM.XML</h2>
+<pre class="language-java"><code>    &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd"&gt;
+	&lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+	&lt;parent&gt;
+		&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+		&lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;
+		&lt;version&gt;2.7.1&lt;/version&gt;
+		&lt;relativePath/&gt; &lt;!-- lookup parent from repository --&gt;
+	&lt;/parent&gt;
+	&lt;groupId&gt;com.heycolleagues&lt;/groupId&gt;
+	&lt;artifactId&gt;Student-Service&lt;/artifactId&gt;
+	&lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;
+	&lt;name&gt;Student-Service&lt;/name&gt;
+	&lt;description&gt;Demo project for Spring Boot&lt;/description&gt;
+	&lt;properties&gt;
+		&lt;java.version&gt;17&lt;/java.version&gt;
+	&lt;/properties&gt;
+	&lt;dependencies&gt;
+		&lt;dependency&gt;
+			&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+			&lt;artifactId&gt;spring-boot-starter-data-jpa&lt;/artifactId&gt;
+		&lt;/dependency&gt;
+		&lt;dependency&gt;
+			&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+			&lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
+		&lt;/dependency&gt;
+
+		&lt;dependency&gt;
+			&lt;groupId&gt;mysql&lt;/groupId&gt;
+			&lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
+			&lt;scope&gt;runtime&lt;/scope&gt;
+		&lt;/dependency&gt;
+		&lt;dependency&gt;
+			&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+			&lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;
+			&lt;scope&gt;test&lt;/scope&gt;
+		&lt;/dependency&gt;
+	&lt;/dependencies&gt;
+
+	&lt;build&gt;
+		&lt;plugins&gt;
+			&lt;plugin&gt;
+				&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+				&lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;
+			&lt;/plugin&gt;
+		&lt;/plugins&gt;
+	&lt;/build&gt;
+
+&lt;/project&gt;
+
+
+
+</code></pre>
+<h2>Step 2: application.properties</h2>
+<pre class="language-java"><code>    
+    # MySQL connection
+    server.port=9090
+   spring.datasource.url=jdbc:mysql://localhost:3306/studentservice
+   spring.datasource.username=root
+   spring.datasource.password=root
+           
+   # hibernate Configuration
+   spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL8Dialect
+   spring.jpa.hibernate.ddl-auto=update
+   spring.jpa.show-sql=true
+   spring.jpa.properties.hibernate.format_sql=true
+   
+   
+   
+
+</code></pre>
+<h2>Step 3: class- Student.java</h2>
+<pre class="language-java"><code>    
+    package com.heycolleagues.model;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+public class Student {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long studentId;
+	private String studentName;
+	private String studentAge;
+	public Long getStudentId() {
+		return studentId;
+	}
+	public void setStudentId(Long studentId) {
+		this.studentId = studentId;
+	}
+	public String getStudentName() {
+		return studentName;
+	}
+	public void setStudentName(String studentName) {
+		this.studentName = studentName;
+	}
+	public String getStudentAge() {
+		return studentAge;
+	}
+	public void setStudentAge(String studentAge) {
+		this.studentAge = studentAge;
+	}
+	public Student(Long studentId, String studentName, String studentAge) {
+		super();
+		this.studentId = studentId;
+		this.studentName = studentName;
+		this.studentAge = studentAge;
+	}
+	public Student() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	
+	
+	
+
+}
+
+
+
+</code></pre>
+<h2>Step 4: interface- StudentRepository.java</h2>
+<pre class="language-java"><code>    package com.heycolleagues.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.heycolleagues.model.Student;
+
+public interface StudentRepository extends JpaRepository&lt;Student, Long&gt;{
+
+}
+
+
+
+</code></pre>
+<div class="container">&nbsp;</div>
+<hr>
+<h2>Step 5: Interface- StudentService.java</h2>
+<pre class="language-java"><code>    
+    package com.heycolleagues.service;
+
+
+    import com.heycolleagues.model.Student;
+    import com.heycolleagues.response.templates.StudentDegreeResponse;
+    
+    public interface StudentService {
+        
+        public Student createStudent(Student student);
+        public Student getStudent(Long studentId);
+        
+    
+    }
+    
+
+</code></pre>
+<h2>Step 6: class- StudentServiceImplement.java</h2>
+<pre class="language-java"><code>    
+    package com.heycolleagues.serviceImplement;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+
+import com.heycolleagues.model.Student;
+import com.heycolleagues.repository.StudentRepository;
+import com.heycolleagues.response.templates.Degree;
+import com.heycolleagues.response.templates.StudentDegreeResponse;
+import com.heycolleagues.service.StudentService;
+
+@Service
+public class StudentServiceImplement implements StudentService{
+	
+
+	@Autowired
+	StudentRepository studentRepository;
+
+	@Override
+	public Student createStudent(Student student) {
+		return this.studentRepository.save(student);
+	}
+
+	@Override
+	public Student getStudent(Long studentId) {
+		return this.studentRepository.findById(studentId).get();
+	}
+
+}   
+
+</code></pre>
+<h2>Step 7: Class- StudentController.java</h2>
+<pre class="language-java"><code>
+    package com.heycolleagues.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.heycolleagues.model.Student;
+import com.heycolleagues.response.templates.StudentDegreeResponse;
+import com.heycolleagues.serviceImplement.StudentServiceImplement;
+
+@RestController
+@RequestMapping("/student")
+public class StudentController {
+	
+	@Autowired
+	StudentServiceImplement serviceImplement;
+	
+	@PostMapping("/save")
+	public ResponseEntity&lt;Student&gt; createStudent(@RequestBody Student student){
+		return ResponseEntity.ok(this.serviceImplement.createStudent(student));
+	}
+	
+	@GetMapping("/{id}")
+	public Student getStudentById(@PathVariable("id") Long studentid) {
+		return serviceImplement.getStudent(studentid);
+	}
+	
+	@GetMapping("/degree/{id}")
+	public StudentDegreeResponse getStudentWithDegree(@PathVariable("id") Long studentid) {
+		return serviceImplement.getStudentWithDegree(studentid);
+	}
+
+}
+
+
+
+</code></pre>
+<hr>
+<h2 style="text-align: center;">2<sup>nd</sup> MICROSERVICE</h2>
+<hr>
+<h2>Step 1: POM.XML</h2>
+<pre class="language-java"><code>    
+    &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd"&gt;
+	&lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+	&lt;parent&gt;
+		&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+		&lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;
+		&lt;version&gt;2.7.1&lt;/version&gt;
+		&lt;relativePath/&gt; &lt;!-- lookup parent from repository --&gt;
+	&lt;/parent&gt;
+	&lt;groupId&gt;com.heycolleagues&lt;/groupId&gt;
+	&lt;artifactId&gt;Degree-Service&lt;/artifactId&gt;
+	&lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;
+	&lt;name&gt;Degree-Service&lt;/name&gt;
+	&lt;description&gt;Demo project for Spring Boot&lt;/description&gt;
+	&lt;properties&gt;
+		&lt;java.version&gt;17&lt;/java.version&gt;
+	&lt;/properties&gt;
+	&lt;dependencies&gt;
+		&lt;dependency&gt;
+			&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+			&lt;artifactId&gt;spring-boot-starter-data-jpa&lt;/artifactId&gt;
+		&lt;/dependency&gt;
+		&lt;dependency&gt;
+			&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+			&lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
+		&lt;/dependency&gt;
+
+		&lt;dependency&gt;
+			&lt;groupId&gt;mysql&lt;/groupId&gt;
+			&lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
+			&lt;scope&gt;runtime&lt;/scope&gt;
+		&lt;/dependency&gt;
+		&lt;dependency&gt;
+			&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+			&lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;
+			&lt;scope&gt;test&lt;/scope&gt;
+		&lt;/dependency&gt;
+	&lt;/dependencies&gt;
+
+	&lt;build&gt;
+		&lt;plugins&gt;
+			&lt;plugin&gt;
+				&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+				&lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;
+			&lt;/plugin&gt;
+		&lt;/plugins&gt;
+	&lt;/build&gt;
+
+&lt;/project&gt;
+
+
+
+</code></pre>
+<h2>Step 2: application.properties</h2>
+<pre class="language-java"><code>    
+    # MySQL connection
+server.port=9091
+spring.datasource.url=jdbc:mysql://localhost:3306/degreeservice
+spring.datasource.username=root
+spring.datasource.password=root
+    
+# hibernate Configuration
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL8Dialect
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.format_sql=true
+
+#Application Configuration
+spring.application.name=Degree-Service
+
+
+
+</code></pre>
+<h2>Step 3: Class- Degree.java</h2>
+<pre class="language-java"><code>    
+    package com.heycolleagues.model;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+public class Degree {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long degreeId;
+	private String degreeName;
+	public Long getDegreeId() {
+		return degreeId;
+	}
+	public void setDegreeId(Long degreeId) {
+		this.degreeId = degreeId;
+	}
+	public String getDegreeName() {
+		return degreeName;
+	}
+	public void setDegreeName(String degreeName) {
+		this.degreeName = degreeName;
+	}
+	public Degree(Long degreeId, String degreeName) {
+		super();
+		this.degreeId = degreeId;
+		this.degreeName = degreeName;
+	}
+	public Degree() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	
+
+}
+
+
+
+</code></pre>
+<h2>Step 4:Interface- DegreeRepository.java</h2>
+<pre class="language-java"><code>    package com.heycolleagues.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.heycolleagues.model.Degree;
+
+public interface DegreeRepository extends JpaRepository&lt;Degree, Long&gt;{
+
+}
+
+
+
+</code></pre>
+<h2>Step 5: Interface- DegreeService.java</h2>
+<pre class="language-java"><code>    package com.heycolleagues.service;
+
+import com.heycolleagues.model.Degree;
+
+public interface DegreeService {
+	
+	public Degree createDegree(Degree degree);
+	public Degree getDegree(Long degreeId);
+	
+
+}
+
+
+
+</code></pre>
+<h2>Step 6: Class- DegreeServiceImplement.java</h2>
+<pre class="language-java"><code>    
+    package com.heycolleagues.serviceImplement;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.heycolleagues.model.Degree;
+import com.heycolleagues.repository.DegreeRepository;
+import com.heycolleagues.service.DegreeService;
+
+@Service
+public class DegreeServiceImplement implements DegreeService{
+	
+	@Autowired
+	DegreeRepository degreeRepository;
+
+	@Override
+	public Degree createDegree(Degree degree) {
+		return this.degreeRepository.save(degree);
+	}
+
+	@Override
+	public Degree getDegree(Long degreeId) {
+		return this.degreeRepository.findById(degreeId).get();
+	}
+
+}
+
+
+
+</code></pre>
+<h2>Step 7: Class- DegreeController.java</h2>
+<pre class="language-java"><code>    package com.heycolleagues.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.heycolleagues.model.Degree;
+import com.heycolleagues.serviceImplement.DegreeServiceImplement;
+
+@RestController
+@RequestMapping("/degree")
+public class DegreeController {
+
+	@Autowired
+	DegreeServiceImplement degreeServiceImplement;
+	
+	@PostMapping("/save")
+	public ResponseEntity&lt;Degree&gt; createDegree(@RequestBody Degree degree){
+		return ResponseEntity.ok(this.degreeServiceImplement.createDegree(degree));
+	}
+	
+	@GetMapping("/{id}")
+	public Degree getDegreeById(@PathVariable("id") Long degreeId) {
+		return this.degreeServiceImplement.getDegree(degreeId);
+	}
+}
+
+
+
+</code></pre>
+<hr>
+<h2 style="text-align: center;"><span style="color: rgb(224, 62, 45);">Make two Microservices Communicate</span></h2>
+<hr>
+<h2>👉 MICROSERVICES 1<sup>st</sup></h2>
+<h2>Step 1: Class- Degree.java</h2>
+<pre class="language-java"><code>   
+	package com.heycolleagues.response.templates;
+
+public class Degree {
+	
+	private Long degreeId;
+	private String degreeName;
+	public Long getDegreeId() {
+		return degreeId;
+	}
+	public void setDegreeId(Long degreeId) {
+		this.degreeId = degreeId;
+	}
+	public String getDegreeName() {
+		return degreeName;
+	}
+	public void setDegreeName(String degreeName) {
+		this.degreeName = degreeName;
+	}
+	public Degree(Long degreeId, String degreeName) {
+		super();
+		this.degreeId = degreeId;
+		this.degreeName = degreeName;
+	}
+	public Degree() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	
+
+}
+
+
+
+</code></pre>
+<h2>Step 2: Class- StudentDegreeResponse.java</h2>
+<pre class="language-java"><code>    
+    package com.heycolleagues.response.templates;
+
+    import com.heycolleagues.model.Student;
+    
+    public class StudentDegreeResponse {
+        
+        public Student student;
+        public Degree degree;
+        public Student getStudent() {
+            return student;
+        }
+        public void setStudent(Student student) {
+            this.student = student;
+        }
+        public Degree getDegree() {
+            return degree;
+        }
+        public void setDegree(Degree degree) {
+            this.degree = degree;
+        }
+        public StudentDegreeResponse(Student student, Degree degree) {
+            super();
+            this.student = student;
+            this.degree = degree;
+        }
+        public StudentDegreeResponse() {
+            super();
+            // TODO Auto-generated constructor stub
+        }
+        
+        
+    
+    }
+    
+
+</code></pre>
+<h2>Step 3: Interface- StudentService.java</h2>
+<pre class="language-java"><code>    public StudentDegreeResponse  getStudentWithDegree(Long studentId);
+</code></pre>
+<h2>Step 4: Class- StudentServiceApplication.java</h2>
+<pre class="language-java"><code>    @Bean
+	public RestTemplate restTemplate() {
+		return new RestTemplate();
+	}
+
+
+</code></pre>
+<h2>Step 5: Class- StudentServiceImplement.java</h2>
+<pre class="language-java"><code>    @Autowired
+	RestTemplate restTemplate;
+    
+
+    @Override
+	public StudentDegreeResponse getStudentWithDegree(Long studentId) {
+		StudentDegreeResponse studentDegreeResponse = new StudentDegreeResponse();
+		Student student = this.studentRepository.findById(studentId).get();
+		Degree degree = restTemplate.getForObject("http://localhost:9091/degree/"+ student.getStudentId() , Degree.class);
+		studentDegreeResponse.setStudent(student);
+		studentDegreeResponse.setDegree(degree);
+		return studentDegreeResponse;
+	}
+	
+
+</code></pre>
+<h2>Step 7: Class- StudentController.java</h2>
+<pre class="language-java"><code>    
+    @GetMapping("/degree/{id}")
+	public StudentDegreeResponse getStudentWithDegree(@PathVariable("id") Long studentid) {
+		return serviceImplement.getStudentWithDegree(studentid);
+	}
+
+</code></pre>
+<hr>
+<h2 style="text-align: center;">API GATEWAY</h2>
+<hr>
+<h2>Step 1: POM.XML</h2>
+<pre class="language-java"><code>    
+    &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+    &lt;project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd"&gt;
+        &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+        &lt;parent&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;
+            &lt;version&gt;2.7.1&lt;/version&gt;
+            &lt;relativePath/&gt; &lt;!-- lookup parent from repository --&gt;
+        &lt;/parent&gt;
+        &lt;groupId&gt;com.heycolleagues&lt;/groupId&gt;
+        &lt;artifactId&gt;API-Gateway&lt;/artifactId&gt;
+        &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;
+        &lt;name&gt;API-Gateway&lt;/name&gt;
+        &lt;description&gt;Demo project for Spring Boot&lt;/description&gt;
+        &lt;properties&gt;
+            &lt;java.version&gt;17&lt;/java.version&gt;
+            &lt;spring-cloud.version&gt;2021.0.3&lt;/spring-cloud.version&gt;
+        &lt;/properties&gt;
+        &lt;dependencies&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+                &lt;artifactId&gt;spring-cloud-starter-gateway&lt;/artifactId&gt;
+            &lt;/dependency&gt;
+    
+            &lt;dependency&gt;
+                &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+                &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;
+                &lt;scope&gt;test&lt;/scope&gt;
+            &lt;/dependency&gt;
+        &lt;/dependencies&gt;
+        &lt;dependencyManagement&gt;
+            &lt;dependencies&gt;
+                &lt;dependency&gt;
+                    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+                    &lt;artifactId&gt;spring-cloud-dependencies&lt;/artifactId&gt;
+                    &lt;version&gt;${spring-cloud.version}&lt;/version&gt;
+                    &lt;type&gt;pom&lt;/type&gt;
+                    &lt;scope&gt;import&lt;/scope&gt;
+                &lt;/dependency&gt;
+            &lt;/dependencies&gt;
+        &lt;/dependencyManagement&gt;
+    
+        &lt;build&gt;
+            &lt;plugins&gt;
+                &lt;plugin&gt;
+                    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+                    &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;
+                &lt;/plugin&gt;
+            &lt;/plugins&gt;
+        &lt;/build&gt;
+    
+    &lt;/project&gt;
+    
+
+</code></pre>
+<h2>Step 2: Application.yml</h2>
+<pre class="language-java"><code>    server:
+  port: 9093
+
+spring:
+  application:
+    name: API-GATEWAY
+  cloud:
+    gateway:
+      routes:
+        - id: Student
+          uri: http://localhost:9090/student/**
+          predicates:
+            - Path=/student/**
+        - id: Degree
+          uri: http://localhost:9091/degree/**
+          predicates:
+            - Path=/degree/**  
+  
+
+</code></pre>
+<p>&nbsp;</p>

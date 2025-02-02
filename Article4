@@ -1,23 +1,23 @@
-Article Number - 1
+Article Number - 4
 
 Category: Spring Boot
 Sub Category : Basic
 
-Image: https://bhartikumari.s3.ap-south-1.amazonaws.com/Untitled%20design%20%2861%29%20%281%29.png_1713384750243
+Image : https://bhartikumari.s3.ap-south-1.amazonaws.com/1717551542111_spring_boot.png
 
-Title : Effortless CRUD Operations with Spring Boot and MySQL: A Step-by-Step Guide
+Title: Tracing Microservices with Zipkin and Spring Boot: Enhancing Visibility and Debugging Efficiency
 
-Description: Discover how to perform CRUD operations seamlessly using Spring Boot and MySQL. Our comprehensive guide walks you through every step, from setting up your environment to mastering database interactions.
+Description: Discover how Zipkin integrates with Spring Boot to provide comprehensive tracing capabilities for microservices architectures. Learn how to enhance visibility and streamline debugging with our expert guide.
 
-Keywords: Spring Boot CRUD operations, MySQL database, Spring Boot MySQL tutorial, Java CRUD operations, Spring Boot database interactions
+keywords : Zipkin, Spring Boot tracing, Microservices tracing, Distributed tracing, Debugging microservices
 
 Content: 
 
-<h2 style="text-align: center;">CRUD OPERATION: SPRING BOOT, MYSQL, HIBERNATE, POSTMAN</h2>
-<p><img style="display: block; margin-left: auto; margin-right: auto;" src="https://bhartikumari.s3.ap-south-1.amazonaws.com/Untitled%20design%20%2861%29%20%281%29.png_1713384750243" alt="" width="615" height="346"></p>
-<p><iframe style="display: table; margin-left: auto; margin-right: auto;" title="YouTube video player" src="https://www.youtube.com/embed/teXVNDoCh5Y?si=9FR6g9yjycIeZxh-" width="560" height="315" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen"></iframe></p>
+<h2 style="text-align: center;">Tracing Microservices with Zipkin and Spring Boot: Enhancing Visibility and Debugging Efficiency</h2>
+<p><img style="display: block; margin-left: auto; margin-right: auto;" src="https://bhartikumari.s3.ap-south-1.amazonaws.com/Untitled%20design%20%2864%29.png_1713386736607" alt="" width="689" height="388"></p>
+<p><iframe style="display: table; margin-left: auto; margin-right: auto;" title="YouTube video player" src="https://www.youtube.com/embed/GVwfiZMXXTk?si=ipDVIm9nZUSRjEfJ" width="560" height="315" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen"></iframe></p>
 <hr>
-<h2 style="text-align: center;">👉 FOLLOW THESE STEPS</h2>
+<h2 style="text-align: center;">FOLLOW THESE STEPS</h2>
 <hr>
 <h2>Step 1: pom.xml</h2>
 <pre class="language-java"><code>    &lt;?xml version="1.0" encoding="UTF-8"?&gt;
@@ -47,11 +47,18 @@ Content:
                 &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
                 &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
             &lt;/dependency&gt;
-    
             &lt;dependency&gt;
                 &lt;groupId&gt;mysql&lt;/groupId&gt;
                 &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
                 &lt;scope&gt;runtime&lt;/scope&gt;
+            &lt;/dependency&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+                &lt;artifactId&gt;spring-cloud-sleuth-zipkin&lt;/artifactId&gt;
+            &lt;/dependency&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+                &lt;artifactId&gt;spring-cloud-starter-sleuth&lt;/artifactId&gt;
             &lt;/dependency&gt;
             &lt;dependency&gt;
                 &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
@@ -70,7 +77,10 @@ Content:
         &lt;/build&gt;
     
     &lt;/project&gt;
-    </code></pre>
+    
+
+
+</code></pre>
 <h2>Step 2: application.properties</h2>
 <pre class="language-java"><code>    # MySQL connection
     server.port=9091
@@ -83,6 +93,13 @@ Content:
     spring.jpa.hibernate.ddl-auto=update
     spring.jpa.show-sql=true
     spring.jpa.properties.hibernate.format_sql=true
+    
+    #Zipkin Config
+    spring.zipkin.enabled=true
+    spring.zipkin.base-url=http://127.0.0.1:9411/
+    
+    #Spring Boot
+    spring.application.name = EMPLOYEE-SERVICE
 
 
 </code></pre>
@@ -92,6 +109,7 @@ Content:
     import org.springframework.boot.SpringApplication;
     import org.springframework.boot.autoconfigure.SpringBootApplication;
     
+    
     @SpringBootApplication
     public class CrudOperationApplication {
     
@@ -99,9 +117,8 @@ Content:
             SpringApplication.run(CrudOperationApplication.class, args);
         }
     
+        
     }
-    
-
 
 </code></pre>
 <h2>Step 4: class- Employee.java</h2>
@@ -273,64 +290,66 @@ public class EmployeeServiceImplement implements EmployeeService{
 </code></pre>
 <h2>Step 8: class- EmployeeController.class</h2>
 <pre class="language-java"><code>               
-
-
     package com.heycolleagues.controller;
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.heycolleagues.model.Employee;
-import com.heycolleagues.serviceImplement.EmployeeServiceImplement;
-
-@RestController
-@RequestMapping("/api/v1")
-public class EmployeeController {
-	
-	@Autowired
-	private EmployeeServiceImplement serviceImplement;
-	
-	@PostMapping("/create")
-	public ResponseEntity&lt;Employee&gt; createEmployee(@RequestBody Employee employee){
-		return ResponseEntity.ok(this.serviceImplement.createEmployee(employee));
-	}
-	
-	@PutMapping("/update/{username}")
-	public ResponseEntity&lt;Employee&gt; updateEmployee
-	(@PathVariable("username") String username ,@RequestBody Employee employee)
-	throws Exception
-	{
-		return ResponseEntity.ok(this.serviceImplement.updateEmployee(username, employee));
-	}
-	
-	@GetMapping("/get/{username}")
-	public Employee getEmployeeByUsername(@PathVariable("username") String username) {
-		return this.serviceImplement.getEmployeeByUsername(username);
-	}
-
-	@GetMapping("/getAllEmployees")
-	public List&lt;Employee&gt; getAllEmployee(){
-		return this.serviceImplement.getAllEmployee();
-	}
-	
-	@DeleteMapping("/delete/{employeeId}")
-	public void deleteEmployeeById(@PathVariable("employeeId") Long id) {
-		this.serviceImplement.deleteEmployeeById(id);
-	}
-}
+    import java.util.List;
+    
+    
+    import org.springframework.beans.factory.annotation.Autowired;
+    import org.springframework.http.ResponseEntity;
+    import org.springframework.web.bind.annotation.DeleteMapping;
+    import org.springframework.web.bind.annotation.GetMapping;
+    import org.springframework.web.bind.annotation.PathVariable;
+    import org.springframework.web.bind.annotation.PostMapping;
+    import org.springframework.web.bind.annotation.PutMapping;
+    import org.springframework.web.bind.annotation.RequestBody;
+    import org.springframework.web.bind.annotation.RequestMapping;
+    import org.springframework.web.bind.annotation.RestController;
+    
+    import com.heycolleagues.model.Employee;
+    import com.heycolleagues.serviceImplement.EmployeeServiceImplement;
+    
+    
+    @RestController
+    @RequestMapping("/api/v1")
+    public class EmployeeController {
+        
+        @Autowired
+        private EmployeeServiceImplement serviceImplement;
+        
+        @PostMapping("/create")
+        public ResponseEntity&lt;Employee&gt; createEmployee(@RequestBody Employee employee){
+            return ResponseEntity.ok(this.serviceImplement.createEmployee(employee));
+        }
+        
+        @PutMapping("/update/{username}")
+        public ResponseEntity&lt;Employee&gt; updateEmployee
+        (@PathVariable("username") String username ,@RequestBody Employee employee)
+        throws Exception
+        {
+            return ResponseEntity.ok(this.serviceImplement.updateEmployee(username, employee));
+        }
+        
+        @GetMapping("/get/{username}")
+        public Employee getEmployeeByUsername(@PathVariable("username") String username) {
+            return this.serviceImplement.getEmployeeByUsername(username);
+        }
+    
+        
+        @GetMapping("/getAllEmployees")
+        public List&lt;Employee&gt; getAllEmployee(){
+            return this.serviceImplement.getAllEmployee();
+        }
+        
+        @DeleteMapping("/delete/{employeeId}")
+        public void deleteEmployeeById(@PathVariable("employeeId") Long id) {
+            this.serviceImplement.deleteEmployeeById(id);
+        }
+    }
+    
 
 
 
 
 </code></pre>
-
+<p>&nbsp;</p>
