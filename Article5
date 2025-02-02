@@ -1,0 +1,130 @@
+Article Number - 5
+
+Category: Android
+Sub Category : Basic
+
+Image : https://bhartikumari.s3.ap-south-1.amazonaws.com/Untitled%20design%20%2862%29%20%281%29.png_1713396474852
+
+Title: Elevate Your Android UI: Creating a Carousel Using Java - Step-by-Step Guide
+
+Description: Transform your Android app's user interface with our comprehensive tutorial on building a carousel using Java. Learn how to implement smooth, responsive carousel views to showcase your content creatively and engage your users effectively.
+
+keywords : Android carousel tutorial, Carousel implementation in Android, Java programming, Android UI design, Android development tutorials, Android app development, Carousel viewpager Android, Carousel layout Android, Android viewpager tutorial, Android image slider tutorial
+
+Content: 
+
+<h2 style="text-align: center;">Carousel in Android</h2>
+<p><img style="display: block; margin-left: auto; margin-right: auto;" src="https://bhartikumari.s3.ap-south-1.amazonaws.com/Untitled%20design%20%2862%29%20%281%29.png_1713396474852" alt="" width="651" height="366"></p>
+<p><iframe style="display: table; margin-left: auto; margin-right: auto;" title="YouTube video player" src="https://www.youtube.com/embed/qVAJEJa2WUY?si=rAMNKwbFq1z-9maT" width="560" height="315" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen"></iframe></p>
+<hr>
+<h2 style="text-align: center;">FOLLOW THESE STEPS</h2>
+<hr>
+<h2>Step 1: build.gradle</h2>
+<pre class="language-java"><code>    implementation 'com.github.denzcoskun:ImageSlideshow:0.1.0'</code></pre>
+<h2>Step 2: settings.gradle</h2>
+<pre class="language-java"><code>
+    dependencyResolutionManagement {
+        repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+        repositories {
+            google()
+            mavenCentral()
+            maven { url 'https://jitpack.io' }
+        }
+    }
+	</code></pre>
+<h2>Step 3: res &gt; layout &gt; activity_main.xml</h2>
+<pre class="language-java"><code>	
+
+    &lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"&gt;
+
+    &lt;com.denzcoskun.imageslider.ImageSlider
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@color/black"
+        app:iss_auto_cycle="true"
+        app:iss_delay="0"
+        app:iss_text_align="CENTER"
+        app:iss_period="3000"
+        app:iss_placeholder="@color/black"
+        app:iss_error_image="@color/purple_700"
+        android:id="@+id/slider"
+        app:iss_corner_radius="0"
+        /&gt;
+
+    &lt;TextView
+        android:id="@+id/text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/slider"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="186dp"
+        android:gravity="center"
+        android:text="THIS IS CAROUSEL"
+        android:textAlignment="center"
+        android:textSize="15dp"
+        android:textStyle="bold" /&gt;
+
+
+&lt;/RelativeLayout&gt;
+
+</code></pre>
+<h2>Step 4: MainActivity.class</h2>
+<pre class="language-java"><code>
+    package com.heycolleagues.carousel;
+
+    import androidx.appcompat.app.AppCompatActivity;
+    
+    import android.os.Bundle;
+    
+    
+    import com.denzcoskun.imageslider.ImageSlider;
+    import com.denzcoskun.imageslider.constants.ScaleTypes;
+    import com.denzcoskun.imageslider.models.SlideModel;
+    
+    import java.util.ArrayList;
+    import java.util.List;
+    
+    public class MainActivity extends AppCompatActivity {
+    
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_main);
+    
+    //        ImageSlider imageSlider = findViewById(R.id.slider);
+    //        List&lt;SlideModel&gt; slideModels = new ArrayList&lt;&gt;();
+    //        slideModels.add(new SlideModel(R.drawable.spider, ScaleTypes.FIT));
+    //        slideModels.add(new SlideModel(R.drawable.jack, ScaleTypes.FIT));
+    //        slideModels.add(new SlideModel(R.drawable.ozark, ScaleTypes.FIT));
+    //        slideModels.add(new SlideModel(R.drawable.retro, ScaleTypes.FIT));
+    
+            List&lt;SlideModel&gt; imageList = new  ArrayList&lt;&gt;(); // Create image list
+    
+    // imageList.add(SlideModel("String Url" or R.drawable)
+    // imageList.add(SlideModel("String Url" or R.drawable, "title") You can add title
+    
+            imageList.add(new SlideModel("https://bit.ly/2YoJ77H", "Title 1", ScaleTypes.FIT));
+            imageList.add(new SlideModel("https://bit.ly/2BteuF2", "Title 2", ScaleTypes.FIT));
+            imageList.add(new SlideModel("https://bit.ly/3fLJf72", "Title 3", ScaleTypes.FIT));
+    
+            imageList.add(new SlideModel(R.drawable.image, "Title 4", ScaleTypes.FIT));
+            imageList.add(new SlideModel(R.drawable.imagee, "Title 5", ScaleTypes.FIT));
+            imageList.add(new SlideModel(R.drawable.imageee, "Title 6", ScaleTypes.FIT));
+    
+            ImageSlider imageSlider = findViewById(R.id.slider);
+            imageSlider.setImageList(imageList);
+    
+        }
+    }
+
+</code></pre>
+<h2 style="text-align: center;"><a href="https://github.com/denzcoskun/ImageSlideshow" target="_blank" rel="noopener">➡️ Learn more about ImageSlideShow</a></h2>

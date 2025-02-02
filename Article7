@@ -1,0 +1,118 @@
+Article Number - 7
+
+Category: Android
+Sub Category : Basic
+
+Image : https://bhartikumari.s3.ap-south-1.amazonaws.com/Untitled%20design%20%2864%29%20%281%29.png_1713397348743
+
+Title: Building Dynamic Image Galleries in Android Using Java: A Comprehensive Tutorial
+
+Description: Dive into Android app development with our step-by-step guide on creating versatile image galleries using Java. Learn how to implement dynamic image grids, handle image loading efficiently, and create immersive user experiences in your Android apps.
+
+keywords : Android image gallery tutorial, Image grid in Android, Java programming, Android development tutorials, Android app development, Android image loading, Android gallery view, Android image viewer, Android photo gallery, Android UI design
+
+Content: 
+
+<h2 style="text-align: center;">Gallery in Android</h2>
+<p><img style="display: block; margin-left: auto; margin-right: auto;" src="https://bhartikumari.s3.ap-south-1.amazonaws.com/Untitled%20design%20%2864%29%20%281%29.png_1713397348743" alt="" width="555" height="312"></p>
+<p><iframe style="display: table; margin-left: auto; margin-right: auto;" title="YouTube video player" src="https://www.youtube.com/embed/xqoEpDo6Cj4?si=z27fIVSFBGeYgt8h" width="560" height="315" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen"></iframe></p>
+<hr>
+<h2 style="text-align: center;">FOLLOW THESE STEPS</h2>
+<hr>
+<h2>Step 1: res &gt; layout &gt; activity_main.xml</h2>
+<pre class="language-java"><code>	
+    &lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    tools:context=".MainActivity"&gt;
+
+
+    &lt;androidx.cardview.widget.CardView
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        app:cardCornerRadius="150dp"
+        android:layout_marginTop="30dp"
+        &gt;
+        &lt;ImageView
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:src="#686C6B"
+            android:scaleType="fitXY"
+            android:id="@+id/imgGallery"
+            /&gt;
+    &lt;/androidx.cardview.widget.CardView&gt;
+
+    &lt;Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnGallery"
+        android:layout_marginTop="21dp"
+        android:text="@string/openGallery"
+        /&gt;
+
+&lt;/LinearLayout&gt;
+
+</code></pre>
+<h2>Step 2: MainActivity.class</h2>
+<pre class="language-java"><code>
+
+	package com.heycolleagues.gallery;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.os.Bundle;
+import android.provider.MediaStore;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+
+public class MainActivity extends AppCompatActivity {
+
+    private final int GALLERY_REQ_CODE = 1000;
+    ImageView imgGallery;
+    Button btnGallery;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+
+        imgGallery = findViewById(R.id.imgGallery);
+        btnGallery = findViewById(R.id.btnGallery);
+
+        btnGallery.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent iGallery = new Intent(Intent.ACTION_PICK);
+                iGallery.setData(MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                startActivityForResult(iGallery, GALLERY_REQ_CODE);
+            }
+        });
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+
+        if (resultCode == RESULT_OK){
+            if (requestCode == GALLERY_REQ_CODE){
+                imgGallery.setImageURI(data.getData());
+            }
+        }
+
+
+    }
+}
+
+</code></pre>

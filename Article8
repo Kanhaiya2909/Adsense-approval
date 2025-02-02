@@ -1,0 +1,120 @@
+Article Number - 8
+
+Category: Android
+Sub Category : Basic
+
+Image : https://bhartikumari.s3.ap-south-1.amazonaws.com/Untitled%20design%20%2861%29%20%281%29.png_1713396136830
+
+Title: Mastering Camera Integration in Android Using Java: A Comprehensive Guide
+
+Description: Dive into the world of Android app development with our in-depth tutorial on integrating a camera using Java. Learn how to capture photos, record videos, and implement advanced features in your Android apps with ease.
+
+keywords : Android camera integration, Android camera API, Camera2 API, Java programming, Android development tutorials, Android app development, Android camera features, Android camera permissions, Android camera implementation, Android camera app tutorial
+
+Content: 
+
+<h2 style="text-align: center;">Camera in Android</h2>
+<p><img style="display: block; margin-left: auto; margin-right: auto;" src="https://bhartikumari.s3.ap-south-1.amazonaws.com/Untitled%20design%20%2861%29%20%281%29.png_1713396136830" alt="" width="560" height="315"></p>
+<p><iframe style="display: table; margin-left: auto; margin-right: auto;" title="YouTube video player" src="https://www.youtube.com/embed/jaeq4GWtzS0?si=66MTT5DCcy_-TbwB" width="560" height="315" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen"></iframe></p>
+<hr>
+<h2 style="text-align: center;">FOLLOW THESE STEPS</h2>
+<hr>
+<h2>Step 1: res &gt; layout &gt; activity_main.xml</h2>
+<pre class="language-java"><code>	
+    &lt;?xml version="1.0" encoding="utf-8"?&gt;
+    &lt;LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        app:layout_constraintCircleRadius="500dp"
+        tools:context=".MainActivity"&gt;
+        &lt;androidx.cardview.widget.CardView
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_marginTop="30dp"
+            app:cardCornerRadius="150dp"&gt;
+    
+            &lt;ImageView
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:src="#686C6B"
+                android:scaleType="fitXY"
+                android:id="@+id/imgCamera"
+                /&gt;
+        &lt;/androidx.cardview.widget.CardView&gt;
+    
+    
+      &lt;Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnCamera"
+            android:layout_marginTop="21dp"
+            android:text="@string/openCamera"
+            /&gt;
+    
+    &lt;/LinearLayout&gt;
+
+</code></pre>
+<h2>Step 2: MainActivity.class</h2>
+<pre class="language-java"><code>
+
+	package com.heycolleagues.camera;
+
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.os.Bundle;
+import android.provider.MediaStore;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+
+public class MainActivity extends AppCompatActivity {
+
+    private final int CAMERA_REQ_CODE = 100;
+    ImageView imgCamera;
+    Button btnOpenCamera;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+
+
+        imgCamera = findViewById(R.id.imgCamera);
+        btnOpenCamera = findViewById(R.id.btnCamera);
+
+        btnOpenCamera.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(intent, CAMERA_REQ_CODE);
+            }
+        });
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+
+        if (resultCode == RESULT_OK){
+            if (requestCode == CAMERA_REQ_CODE){
+                Bitmap bitmap = (Bitmap)(data.getExtras().get("data"));
+                imgCamera.setImageBitmap(bitmap);
+            }
+        }
+
+
+    }
+}
+
+</code></pre>

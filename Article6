@@ -1,0 +1,127 @@
+Article Number - 6
+
+Category: Android
+Sub Category : Basic
+
+Image : https://bhartikumari.s3.ap-south-1.amazonaws.com/Untitled%20design%20%2863%29.png_1713396888240
+
+Title: Elevate User Experience: Crafting Custom Toasts in Android Using Java - Step-by-Step Guide
+
+Description: Enhance your Android app's user interface with our detailed tutorial on creating custom toast messages using Java. Learn how to personalize toast appearance, add animations, and convey information effectively to your users.
+
+keywords : Custom toast Android tutorial, Android toast customization, Java programming, Android development tutorials, Android app development, Android toast message, Toast styling Android, Custom toast layout Android, Android UI design, Android toast animation
+
+Content: 
+
+<h2 style="text-align: center;">Custom Toast in Android</h2>
+<p><img style="display: block; margin-left: auto; margin-right: auto;" src="https://bhartikumari.s3.ap-south-1.amazonaws.com/Untitled%20design%20%2863%29.png_1713396888240" alt="" width="649" height="365"></p>
+<p><iframe style="display: table; margin-left: auto; margin-right: auto;" title="YouTube video player" src="https://www.youtube.com/embed/qWjdH6Ks0CU?si=KvVULv21mMEWr8Kt" width="560" height="315" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen"></iframe></p>
+<hr>
+<h2 style="text-align: center;">FOLLOW THESE STEPS</h2>
+<hr>
+<h2>Step 1: res &gt; layout &gt; activity_main.xml</h2>
+<pre class="language-java"><code>	
+
+    &lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:gravity="center"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"&gt;
+
+    &lt;Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnToast"
+        android:backgroundTint="#000000"
+        android:text="SHOW TOAST"
+        android:minHeight="50dp"
+        /&gt;
+
+&lt;/LinearLayout&gt;
+</code></pre>
+<h2>Step 2: res &gt; layout &gt; customtoast.xml</h2>
+<pre class="language-java"><code>	
+
+    &lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;LinearLayout
+    android:id="@+id/view_contain"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#385765"
+    android:gravity="center"
+    android:padding="11dp"&gt;
+
+    &lt;ImageView
+        android:layout_width="34dp"
+        android:layout_height="34dp"
+        android:src="@drawable/ic_baseline_cloud_done_24"
+        android:contentDescription="TODO" /&gt;
+
+    &lt;TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtMsg"
+        android:text="Custom Message"
+        android:textColor="#fff"
+        android:textStyle="bold"
+        android:layout_marginLeft="11dp"
+        android:textSize="20sp"/&gt;
+
+&lt;/LinearLayout&gt;
+   
+</code></pre>
+<h2>Step 3: MainActivity.class</h2>
+<pre class="language-java"><code>
+
+	package com.heycolleagues.customtoast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
+
+public class MainActivity extends AppCompatActivity {
+
+    Button btnToast;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        btnToast = findViewById(R.id.btnToast);
+
+        btnToast.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+//                Toast.makeText(getApplicationContext(), "THIS IS CUSTOM TOAST", Toast.LENGTH_LONG).show();
+
+
+                Toast toast = new Toast(getApplicationContext());
+                View v = getLayoutInflater().inflate(R.layout.customtoast, (ViewGroup)findViewById(R.id.view_contain));
+                toast.setView(v);
+                TextView txtMsg = v.findViewById(R.id.txtMsg);
+                txtMsg.setText("Hey Colleagues");
+                toast.setDuration(Toast.LENGTH_SHORT);
+                toast.show();
+
+            }
+        });
+
+//        Toast.makeText(getApplicationContext(), "THIS IS CUSTOM TOAST", Toast.LENGTH_LONG).show();
+
+//        Custom Toast
+
+    }
+}
+</code></pre>
