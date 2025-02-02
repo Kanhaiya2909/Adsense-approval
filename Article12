@@ -3,12 +3,153 @@ Article Number - 12
 Category: Development
 Sub Category : Basic
 
-Image : 
+Image : https://miro.medium.com/v2/resize:fit:1400/format:webp/1*7E_wu_YWclobEAgQizJtYw.png
 
-Title:
+Title: Table of Content for Quill JS Rich Text Editor
 
-Description:
+Description: Quill, as one of the most modern rich text editors, has reached over 35k stars on Github. Its numerous useful features make it extensible, compatible, and simple to start to use as well.
 
-keywords :
+keywords : Quill, Rich Text Editor, Table of Content
 
 Content:
+
+<header id="main-title" class="crayons-article__header">
+<div class="crayons-article__header__meta">
+<p id="b911" class="pw-post-body-paragraph lg lh fq li b lj lk ll lm ln lo lp lq lr ls lt lu lv lw lx ly lz ma mb mc md fj bk" data-selectable-paragraph="">Quill, as one of the most modern rich text editors, has reached over 35k stars on&nbsp;<a class="af me" href="https://github.com/quilljs/quill/stargazers" target="_blank" rel="noopener ugc nofollow">Github</a>. Its numerous useful features make it extensible, compatible, and simple to start to use as well. Another important characteristic of Quill resides in its customizability. The very feature enables developers to tailor Quill for their needs.</p>
+<figure class="mi mj mk ml mm mn mf mg paragraph-image">
+<div class="mo mp ed mq bh mr" tabindex="0" role="button">
+<div class="mf mg mh"><picture><source srcset="https://miro.medium.com/v2/resize:fit:640/format:webp/1*7E_wu_YWclobEAgQizJtYw.png 640w, https://miro.medium.com/v2/resize:fit:720/format:webp/1*7E_wu_YWclobEAgQizJtYw.png 720w, https://miro.medium.com/v2/resize:fit:750/format:webp/1*7E_wu_YWclobEAgQizJtYw.png 750w, https://miro.medium.com/v2/resize:fit:786/format:webp/1*7E_wu_YWclobEAgQizJtYw.png 786w, https://miro.medium.com/v2/resize:fit:828/format:webp/1*7E_wu_YWclobEAgQizJtYw.png 828w, https://miro.medium.com/v2/resize:fit:1100/format:webp/1*7E_wu_YWclobEAgQizJtYw.png 1100w, https://miro.medium.com/v2/resize:fit:1400/format:webp/1*7E_wu_YWclobEAgQizJtYw.png 1400w" type="image/webp" sizes="(min-resolution: 4dppx) and (max-width: 700px) 50vw, (-webkit-min-device-pixel-ratio: 4) and (max-width: 700px) 50vw, (min-resolution: 3dppx) and (max-width: 700px) 67vw, (-webkit-min-device-pixel-ratio: 3) and (max-width: 700px) 65vw, (min-resolution: 2.5dppx) and (max-width: 700px) 80vw, (-webkit-min-device-pixel-ratio: 2.5) and (max-width: 700px) 80vw, (min-resolution: 2dppx) and (max-width: 700px) 100vw, (-webkit-min-device-pixel-ratio: 2) and (max-width: 700px) 100vw, 700px"><source srcset="https://miro.medium.com/v2/resize:fit:640/1*7E_wu_YWclobEAgQizJtYw.png 640w, https://miro.medium.com/v2/resize:fit:720/1*7E_wu_YWclobEAgQizJtYw.png 720w, https://miro.medium.com/v2/resize:fit:750/1*7E_wu_YWclobEAgQizJtYw.png 750w, https://miro.medium.com/v2/resize:fit:786/1*7E_wu_YWclobEAgQizJtYw.png 786w, https://miro.medium.com/v2/resize:fit:828/1*7E_wu_YWclobEAgQizJtYw.png 828w, https://miro.medium.com/v2/resize:fit:1100/1*7E_wu_YWclobEAgQizJtYw.png 1100w, https://miro.medium.com/v2/resize:fit:1400/1*7E_wu_YWclobEAgQizJtYw.png 1400w" sizes="(min-resolution: 4dppx) and (max-width: 700px) 50vw, (-webkit-min-device-pixel-ratio: 4) and (max-width: 700px) 50vw, (min-resolution: 3dppx) and (max-width: 700px) 67vw, (-webkit-min-device-pixel-ratio: 3) and (max-width: 700px) 65vw, (min-resolution: 2.5dppx) and (max-width: 700px) 80vw, (-webkit-min-device-pixel-ratio: 2.5) and (max-width: 700px) 80vw, (min-resolution: 2dppx) and (max-width: 700px) 100vw, (-webkit-min-device-pixel-ratio: 2) and (max-width: 700px) 100vw, 700px" data-testid="og"><img class="bh ko ms c" role="presentation" src="https://miro.medium.com/v2/resize:fit:1400/1*7E_wu_YWclobEAgQizJtYw.png" alt="" width="700" height="202" loading="eager"></picture></div>
+</div>
+<figcaption class="mt mu mv mf mg mw mx bf b bg z dx" data-selectable-paragraph="">Quill Rich Text Editor</figcaption>
+</figure>
+<p id="f930" class="pw-post-body-paragraph lg lh fq li b lj lk ll lm ln lo lp lq lr ls lt lu lv lw lx ly lz ma mb mc md fj bk" data-selectable-paragraph="">When using Quill in blog posts, it is very common to have table of contents (TOC) at the top of the post. It simplifies the accessibility of content for the reader as well as Search Engine Optimization (SEO) improvements. TOC, if it is used in the right way, can target multiple keywords at once within a single blog post. Hence, the posts can rank on multiple keywords on the SERP! That being said, Quill accompanied by a good table of content may be interested to many developers.</p>
+<h1 id="5d6a" class="my mz fq bf na nb nc nd ne nf ng nh ni nj nk nl nm nn no np nq nr ns nt nu nv bk" data-selectable-paragraph="">TOC for Blog Posts</h1>
+<p id="5e8a" class="pw-post-body-paragraph lg lh fq li b lj nw ll lm ln nx lp lq lr ny lt lu lv nz lx ly lz oa mb mc md fj bk" data-selectable-paragraph="">Though there are many great Quill modules, it seems that it lacks a simple TOC, as simple as starting using Quill itself. In this article, we will try to create a simple TOC for a blog post. We suppose this blog post has multiple header tags and we aim to create a list as a clickable TOC and put that at the beginning of the post. For demo you can look&nbsp;<a class="af me" href="https://upcoders.ir/posts/-%D9%85%D9%87%D8%A7%D8%B1%D8%AA-%D9%85%D9%87%D9%85-%D8%A8%D8%B1%D8%A7%DB%8C-%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87-%D9%86%D9%88%DB%8C%D8%B3%DB%8C-%D8%A8%D8%A7-%DA%86%D8%A7%D8%B1%DA%86%D9%88%D8%A8-%D9%84%D8%A7%D8%B1%D8%A7%D9%88%D9%84" target="_blank" rel="noopener ugc nofollow">at this blog post</a>.</p>
+<p id="ce9c" class="pw-post-body-paragraph lg lh fq li b lj lk ll lm ln lo lp lq lr ls lt lu lv lw lx ly lz ma mb mc md fj bk" data-selectable-paragraph="">Creating a TOC is simple, it needs two thing: first the header tags must have unique ids in order to link to them, and second a link that jumps to related position in the post. As these are not straightforwardly implementable with Quill, we have to get help from some modules and add few lines of code to accomplish this.</p>
+<h1 id="3a44" class="my mz fq bf na nb nc nd ne nf ng nh ni nj nk nl nm nn no np nq nr ns nt nu nv bk" data-selectable-paragraph="">Links without target attribute</h1>
+<p id="585c" class="pw-post-body-paragraph lg lh fq li b lj nw ll lm ln nx lp lq lr ny lt lu lv nz lx ly lz oa mb mc md fj bk" data-selectable-paragraph="">In Quill , it seems like&nbsp;<code class="cx ob oc od oe b">target="_blank"</code>&nbsp;on links is the default behavior, so if we have some links for TOC items it open the link in the new page, which is not expected behavior for TOC items. It must be a link with&nbsp;<code class="cx ob oc od oe b">target="_self"</code>. Actually It has to be two different type of links, one for TOC and another type for ordinary links. Well, Quill cusomizability can help here.</p>
+<pre class="mi mj mk ml mm of oe og bp oh bb bk"><span class="oi mz fq oe b bg oj ok l ol om" data-selectable-paragraph=""> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span></pre>
+<pre class="language-java"><code>  var Link = Quill.import('formats/link');
+
+            class MyLink extends Link {
+                static create(value) {
+                    let node = Link.create(value);
+                    value = Link.sanitize(value);
+                    node.setAttribute('href', value);
+                    if (value.startsWith("#")) {
+                        node.removeAttribute('target');
+                    } else {
+                        node.setAttribute("target", "_blank");
+                    }
+                    return node;
+                }
+
+                format(name, value) {
+                    super.format(name, value);
+
+                    if (name !== this.statics.blotName || !value) {
+                        return;
+                    }
+
+                    if (value.startsWith("#")) {
+                        this.domNode.removeAttribute("target");
+                    } else {
+                        this.domNode.setAttribute("target", "_blank");
+                    }
+                }
+            }
+
+            Quill.register(MyLink);</code></pre>
+<pre class="mi mj mk ml mm of oe og bp oh bb bk"><span id="d819" class="oi mz fq oe b bg oj ok l ol om" data-selectable-paragraph=""></span></pre>
+<p id="fc02" class="pw-post-body-paragraph lg lh fq li b lj lk ll lm ln lo lp lq lr ls lt lu lv lw lx ly lz ma mb mc md fj bk" data-selectable-paragraph="">It extends the Quill's Link module and in the create method look at the value of&nbsp;<code class="cx ob oc od oe b">href</code>, if it starts with&nbsp;<code class="cx ob oc od oe b">#</code>&nbsp;, the&nbsp;<code class="cx ob oc od oe b">target</code>&nbsp;attribute will be removed and its default behavior (<code class="cx ob oc od oe b">_self</code>) applies. For other links, it opens new page.</p>
+<h1 id="a7c2" class="my mz fq bf na nb nc nd ne nf ng nh ni nj nk nl nm nn no np nq nr ns nt nu nv bk" data-selectable-paragraph="">Header Tags with id attribute</h1>
+<p id="fd0f" class="pw-post-body-paragraph lg lh fq li b lj nw ll lm ln nx lp lq lr ny lt lu lv nz lx ly lz oa mb mc md fj bk" data-selectable-paragraph="">In order to have headers with&nbsp;<code class="cx ob oc od oe b">id</code>&nbsp;attribute, one can change the Header module as follow:</p>
+<pre class="language-java"><code>var ids = [];
+
+            function getRandomId(domNode) {
+                let _id = Math.random().toString(16).slice(2, 9);
+                ids.push(_id);
+                return _id;
+            }
+
+            class MyHeader extends Header {
+
+                constructor(domNode) {
+                    let a = super(domNode);
+                    domNode.setAttribute('id', getRandomId(domNode));
+                    this.cache = {};
+                }
+
+                static create(value) {
+                    const node = super.create();
+                    return node;
+                }
+
+                static formats(domNode) {
+                    return {
+                        id: domNode.getAttribute("id")
+                    };
+                }
+            }
+
+            Quill.register("formats/header", MyHeader);
+            MyHeader.blotName = "header"</code></pre>
+<pre class="mi mj mk ml mm of oe og bp oh bb bk">&nbsp;</pre>
+<p id="35e8" class="pw-post-body-paragraph lg lh fq li b lj lk ll lm ln lo lp lq lr ls lt lu lv lw lx ly lz ma mb mc md fj bk" data-selectable-paragraph="">Note that by using&nbsp;<code class="cx ob oc od oe b">getRandomId()</code>&nbsp;function, we temporarily give a unique id to each header. The&nbsp;<code class="cx ob oc od oe b">ids</code>&nbsp;array keeps generated ids for later use. These values will be replaced by appropriate and meaningful ids. Now we have building blocks of our work and can use them to create table of contents for this blog post. But we haven&rsquo;t yet initialize our Quill editor, so let&rsquo;s do that.</p>
+<h1 id="d98f" class="my mz fq bf na nb nc nd ne nf ng nh ni nj nk nl nm nn no np nq nr ns nt nu nv bk" data-selectable-paragraph="">Initialize Quill Editor</h1>
+<p id="29ce" class="pw-post-body-paragraph lg lh fq li b lj nw ll lm ln nx lp lq lr ny lt lu lv nz lx ly lz oa mb mc md fj bk" data-selectable-paragraph="">After customizing our Quill, we need to initialize it. Note that because I load my content from Laravel eloquent model, I use Laravel blade syntax here:&nbsp;<code class="cx ob oc od oe b">{!! $post-&gt;content !!}</code>&nbsp;.</p>
+<pre class="language-java"><code>var content = new Quill(document.createElement("div"), {
+                theme: 'snow',
+                readonly: false,
+                modules: {
+                    syntax: false,
+                    toolbar: '',
+                },
+            });
+
+            content.setContents({!! $post-&gt;content !!});</code></pre>
+<pre class="mi mj mk ml mm of oe og bp oh bb bk">&nbsp;</pre>
+<h1 id="032f" class="my mz fq bf na nb nc nd ne nf ng nh ni nj nk nl nm nn no np nq nr ns nt nu nv bk" data-selectable-paragraph="">Find Headers and Correct their Ids</h1>
+<p id="52b4" class="pw-post-body-paragraph lg lh fq li b lj nw ll lm ln nx lp lq lr ny lt lu lv nz lx ly lz oa mb mc md fj bk" data-selectable-paragraph="">Now we have to loop over the&nbsp;<code class="cx ob oc od oe b">ops</code>&nbsp;and find header tags. The&nbsp;<code class="cx ob oc od oe b">headers</code>&nbsp;array keeps header tags we found in ops except headers that their content is only a blank line (&nbsp;<code class="cx ob oc od oe b">\n</code>&nbsp;) because it occasionally occurs that header tags include blank lines.</p>
+<p id="667e" class="pw-post-body-paragraph lg lh fq li b lj lk ll lm ln lo lp lq lr ls lt lu lv lw lx ly lz ma mb mc md fj bk" data-selectable-paragraph="">Now it is time to create our table of content. We can fulfill this with using Quill&rsquo;s&nbsp;<code class="cx ob oc od oe b">insertText</code>&nbsp;function and add each header within a list (<code class="cx ob oc od oe b">formatLine</code>). We also replace spaces within header texts with dash.</p>
+<p id="9d67" class="pw-post-body-paragraph lg lh fq li b lj lk ll lm ln lo lp lq lr ls lt lu lv lw lx ly lz ma mb mc md fj bk" data-selectable-paragraph="">The content is ready with the TOC at the beginning of it, so let&rsquo;s show it with&nbsp;<code class="cx ob oc od oe b">$(&ldquo;#q-content&rdquo;).html(content.root.innerHTML)</code>.</p>
+<pre class="mi mj mk ml mm of oe og bp oh bb bk"><span class="oi mz fq oe b bg oj ok l ol om" data-selectable-paragraph=""> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span></pre>
+<pre class="language-java"><code>let index = 0;
+            let headers = [];
+
+            content.getContents().ops.forEach(ops =&gt; {
+                index++;
+
+                if (ops?.attributes?.header) {
+                    if (content.getContents().ops[index - 2].insert !== "\n") {
+                        headers.push(content.getContents().ops[index - 2].insert);
+                    }
+                }
+            });
+
+            headers.slice().reverse().forEach(h =&gt; {
+                content.insertText(0, h + '\n', 'link', '#' + h.replace(/\s/g , "-"), {
+                    'color': '#5a3e3e',
+                    'italic': true
+                });
+                content.formatLine(1, 1, 'list', 'bullet');
+            })
+
+            $("#q-content").html(content.root.innerHTML);
+
+Finally, we update randomly created ids with their new values:
+
+            ids.forEach(hid =&gt; {
+                try {
+                    var node = document.getElementById(hid);
+                    node.id = node.innerHTML.replace(/\s/g , "-");
+                    
+                } catch (error) {
+                    
+                }
+            });</code></pre>
+<pre class="mi mj mk ml mm of oe og bp oh bb bk"><span id="e4c7" class="oi mz fq oe b bg oj ok l ol om" data-selectable-paragraph=""></span><span id="0434" class="oi mz fq oe b bg oj ok l ol om" data-selectable-paragraph=""></span></pre>
+<h1 id="b0c5" class="my mz fq bf na nb nc nd ne nf ng nh ni nj nk nl nm nn no np nq nr ns nt nu nv bk" data-selectable-paragraph="">Final Words</h1>
+<p id="89cc" class="pw-post-body-paragraph lg lh fq li b lj nw ll lm ln nx lp lq lr ny lt lu lv nz lx ly lz oa mb mc md fj bk" data-selectable-paragraph="">That&rsquo;s it. We have our post with the table of contents using Quill text editor and some JavaScript codes. Although It is a straightforward and simple solution to create TOC for Quill, I surely believe that there is lots of room to enhance it and, of course, it can be coded more robustly and professionally. Therefore, feel free to improve it and let me know how you deal with it. Contact me in case of any questions.</p>
+</div>
+</header>
