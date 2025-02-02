@@ -1,0 +1,336 @@
+Article Number - 1
+
+Category: Spring Boot
+Sub Category : Basic
+
+Title : Effortless CRUD Operations with Spring Boot and MySQL: A Step-by-Step Guide
+
+Description: Discover how to perform CRUD operations seamlessly using Spring Boot and MySQL. Our comprehensive guide walks you through every step, from setting up your environment to mastering database interactions.
+
+Keywords: Spring Boot CRUD operations, MySQL database, Spring Boot MySQL tutorial, Java CRUD operations, Spring Boot database interactions
+
+Image: https://bhartikumari.s3.ap-south-1.amazonaws.com/Untitled%20design%20%2861%29%20%281%29.png_1713384750243
+
+Content: 
+
+<h2 style="text-align: center;">CRUD OPERATION: SPRING BOOT, MYSQL, HIBERNATE, POSTMAN</h2>
+<p><img style="display: block; margin-left: auto; margin-right: auto;" src="https://bhartikumari.s3.ap-south-1.amazonaws.com/Untitled%20design%20%2861%29%20%281%29.png_1713384750243" alt="" width="615" height="346"></p>
+<p><iframe style="display: table; margin-left: auto; margin-right: auto;" title="YouTube video player" src="https://www.youtube.com/embed/teXVNDoCh5Y?si=9FR6g9yjycIeZxh-" width="560" height="315" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen"></iframe></p>
+<hr>
+<h2 style="text-align: center;">👉 FOLLOW THESE STEPS</h2>
+<hr>
+<h2>Step 1: pom.xml</h2>
+<pre class="language-java"><code>    &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+    &lt;project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd"&gt;
+        &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+        &lt;parent&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;
+            &lt;version&gt;2.7.1&lt;/version&gt;
+            &lt;relativePath/&gt; &lt;!-- lookup parent from repository --&gt;
+        &lt;/parent&gt;
+        &lt;groupId&gt;com.heycolleagues&lt;/groupId&gt;
+        &lt;artifactId&gt;CRUD-OPERATION&lt;/artifactId&gt;
+        &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;
+        &lt;name&gt;CRUD-OPERATION&lt;/name&gt;
+        &lt;description&gt;CRUD OPERATION BY HEY COLLEAGUES&lt;/description&gt;
+        &lt;properties&gt;
+            &lt;java.version&gt;17&lt;/java.version&gt;
+        &lt;/properties&gt;
+        &lt;dependencies&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+                &lt;artifactId&gt;spring-boot-starter-data-jpa&lt;/artifactId&gt;
+            &lt;/dependency&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+                &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
+            &lt;/dependency&gt;
+    
+            &lt;dependency&gt;
+                &lt;groupId&gt;mysql&lt;/groupId&gt;
+                &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
+                &lt;scope&gt;runtime&lt;/scope&gt;
+            &lt;/dependency&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+                &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;
+                &lt;scope&gt;test&lt;/scope&gt;
+            &lt;/dependency&gt;
+        &lt;/dependencies&gt;
+    
+        &lt;build&gt;
+            &lt;plugins&gt;
+                &lt;plugin&gt;
+                    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+                    &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;
+                &lt;/plugin&gt;
+            &lt;/plugins&gt;
+        &lt;/build&gt;
+    
+    &lt;/project&gt;
+    </code></pre>
+<h2>Step 2: application.properties</h2>
+<pre class="language-java"><code>    # MySQL connection
+    server.port=9091
+    spring.datasource.url=jdbc:mysql://localhost:3306/projectcrud
+    spring.datasource.username=root
+    spring.datasource.password=root
+    
+    # hibernate Configuration
+    spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL8Dialect
+    spring.jpa.hibernate.ddl-auto=update
+    spring.jpa.show-sql=true
+    spring.jpa.properties.hibernate.format_sql=true
+
+
+</code></pre>
+<h2>Step 3: class- CrudOperationApplication.java</h2>
+<pre class="language-java"><code>    package com.heycolleagues;
+
+    import org.springframework.boot.SpringApplication;
+    import org.springframework.boot.autoconfigure.SpringBootApplication;
+    
+    @SpringBootApplication
+    public class CrudOperationApplication {
+    
+        public static void main(String[] args) {
+            SpringApplication.run(CrudOperationApplication.class, args);
+        }
+    
+    }
+    
+
+
+</code></pre>
+<h2>Step 4: class- Employee.java</h2>
+<pre class="language-java"><code>               
+
+    package com.heycolleagues.model;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+public class Employee {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long employeeId;
+	
+	private String username;
+	private String password;
+	public Employee(Long employeeId, String username, String password) {
+		super();
+		this.employeeId = employeeId;
+		this.username = username;
+		this.password = password;
+	}
+	public Long getEmployeeId() {
+		return employeeId;
+	}
+	public void setEmployeeId(Long employeeId) {
+		this.employeeId = employeeId;
+	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public Employee() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	
+
+}
+
+
+
+</code></pre>
+<h2>Step 5: interface-EmployeeRepository.java</h2>
+<pre class="language-java"><code>    package com.heycolleagues.repository;
+
+    import org.springframework.data.jpa.repository.JpaRepository;
+    import org.springframework.stereotype.Repository;
+    
+    import com.heycolleagues.model.Employee;
+    
+    @Repository
+    public interface EmployeeRepository extends JpaRepository&lt;Employee, Long&gt;{
+        
+        public Employee findByUsername(String username);
+    
+    }
+    
+
+
+</code></pre>
+<h2>Step 6: interface-EmployeeService.java</h2>
+<pre class="language-java"><code>               
+
+    package com.heycolleagues.service;
+
+import java.util.List;
+
+import com.heycolleagues.model.Employee;
+
+
+public interface EmployeeService {
+	
+	public Employee createEmployee(Employee employee);
+	public Employee updateEmployee(String username, Employee employee) throws Exception;
+	public Employee getEmployeeByUsername(String username);
+	public List&lt;Employee&gt; getAllEmployee();
+	public void deleteEmployeeById(Long employeeId);
+
+}
+
+
+
+</code></pre>
+<h2>Step 7: class-EmployeeServiceImplement.java</h2>
+<pre class="language-java"><code>               
+
+    package com.heycolleagues.serviceImplement;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.heycolleagues.model.Employee;
+import com.heycolleagues.repository.EmployeeRepository;
+import com.heycolleagues.service.EmployeeService;
+
+@Service
+public class EmployeeServiceImplement implements EmployeeService{
+	
+	@Autowired
+	private EmployeeRepository employeeRepository;
+
+	@Override
+	public Employee createEmployee(Employee employee) {
+		Employee local = employeeRepository.findByUsername(employee.getUsername());
+		if (local == null) {
+			System.out.println("Username already taken, \n Try with other username");
+		}else {
+			local = this.employeeRepository.save(employee);
+		}
+		return this.employeeRepository.save(employee);
+	}
+
+	@Override
+	public Employee updateEmployee(String username ,Employee employee) throws Exception {
+		Employee local = employeeRepository.findByUsername(username);
+		if (local != null) {
+			Employee local1 = employeeRepository.findByUsername(employee.getUsername());
+			if (local1 != null) {
+				throw new Exception("Try with another username for signup \n Thank You!!");
+			}else {
+				local.setUsername(employee.getUsername());
+				local.setPassword(employee.getPassword());
+			}
+			
+			
+		}else {
+			System.out.println("Please record is founded in our database");
+		}
+		return this.employeeRepository.save(local);
+	}
+
+	@Override
+	public Employee getEmployeeByUsername(String username) {
+		return this.employeeRepository.findByUsername(username);
+	}
+
+	@Override
+	public List&lt;Employee&gt; getAllEmployee() {
+		return this.employeeRepository.findAll();
+	}
+
+	@Override
+	public void deleteEmployeeById(Long employeeId) {
+		this.employeeRepository.deleteById(employeeId);
+		
+	}
+
+}
+
+
+
+</code></pre>
+<h2>Step 8: class- EmployeeController.class</h2>
+<pre class="language-java"><code>               
+
+
+    package com.heycolleagues.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.heycolleagues.model.Employee;
+import com.heycolleagues.serviceImplement.EmployeeServiceImplement;
+
+@RestController
+@RequestMapping("/api/v1")
+public class EmployeeController {
+	
+	@Autowired
+	private EmployeeServiceImplement serviceImplement;
+	
+	@PostMapping("/create")
+	public ResponseEntity&lt;Employee&gt; createEmployee(@RequestBody Employee employee){
+		return ResponseEntity.ok(this.serviceImplement.createEmployee(employee));
+	}
+	
+	@PutMapping("/update/{username}")
+	public ResponseEntity&lt;Employee&gt; updateEmployee
+	(@PathVariable("username") String username ,@RequestBody Employee employee)
+	throws Exception
+	{
+		return ResponseEntity.ok(this.serviceImplement.updateEmployee(username, employee));
+	}
+	
+	@GetMapping("/get/{username}")
+	public Employee getEmployeeByUsername(@PathVariable("username") String username) {
+		return this.serviceImplement.getEmployeeByUsername(username);
+	}
+
+	@GetMapping("/getAllEmployees")
+	public List&lt;Employee&gt; getAllEmployee(){
+		return this.serviceImplement.getAllEmployee();
+	}
+	
+	@DeleteMapping("/delete/{employeeId}")
+	public void deleteEmployeeById(@PathVariable("employeeId") Long id) {
+		this.serviceImplement.deleteEmployeeById(id);
+	}
+}
+
+
+
+
+</code></pre>
+
